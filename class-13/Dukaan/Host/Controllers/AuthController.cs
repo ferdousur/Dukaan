@@ -5,12 +5,12 @@ namespace Dukaan.Host.Controllers;
 
 [ApiController]
 [Route("/api/auth")]
-public class UserLoginController : ControllerBase
+public class AuthController : ControllerBase
 {
   
   private readonly IAuthService _authenticaiton;
 
-  public UserLoginController(IAuthService authenticaiton)
+  public AuthController(IAuthService authenticaiton)
   {
         _authenticaiton=authenticaiton;
   }
