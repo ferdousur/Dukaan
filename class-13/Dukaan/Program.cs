@@ -25,6 +25,10 @@ builder.Services.AddIdentity<Merchant, IdentityRole<Guid>>()
 builder.Services.AddScoped<TenantService>();
 builder.Services.AddScoped(typeof(Repository<>)); // Registers the generic repository
 
+builder.Services.AddScoped<IAuthService, AutheService>();  //IAuthService and AutheService Register 
+
+
+
 // Register OpenAPI (Swagger) for API documentation
 builder.Services.AddOpenApi();
 
@@ -32,6 +36,9 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 
 var app = builder.Build();
+
+app.UseAuthentication(); 
+app.UseAuthorization(); 
 
 // --- 2. Middleware Pipeline Section ---
 // This defines the order in which HTTP requests are processed.
